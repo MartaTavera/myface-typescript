@@ -1,1 +1,255 @@
-/* Add your styles here. */
+/*Navigation bar CSS*/
+*{
+  color: #dcdcdc;
+}
+.navbar{
+  background-color: #151820;
+  padding:10px 0;
+
+}
+.navbar .content{
+  /* border: 0.2rem solid red; */
+  display: flex;
+  align-items:center;
+  justify-content:space-between;
+  /* gap:50px; */
+}
+.navbar .app-name a{
+  font-size: 26px;
+  text-decoration: none;
+ }
+.navbar .menu-list{
+  /* border: 0.2rem solid orange; */
+  display:inline-flex;
+
+}
+.menu-list li{
+  list-style:none;
+}
+
+.menu-list li a{
+  font-size:24px;
+  text-decoration: none;
+  margin-left:15px;
+  transition: all 0.3s ease;
+}
+
+.menu-list li a:hover{
+  color : blue;
+}
+
+/*User Details CSS*/
+.main{
+  background-color: #252a38;
+}
+
+#cover-picture{
+  position: relative;
+  width: 100%;
+}
+
+#name {
+  padding: 10px;
+  font-weight: 600;
+  width : 100%;
+  font-size: 24px;
+}
+
+#email{
+  font-weight: 300;
+  font-size: 20px;
+}
+#username{
+  font-weight: 300;
+  font-size: 20px;
+  padding: 10px;
+}
+.user-details{
+  display:flex;
+  border: 1rem solid orange;
+  background-color: rgba(37, 42, 56, 0.7);
+  /* margin: 25px 50px 75px; */
+  position: relative;
+  margin-left: 50px;
+  flex-wrap:wrap;
+  transform: translateY(-50%);
+  flex-direction: row;
+  
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #dcdcdc
+}
+
+#profile-picture{ 
+  border-radius: 50%;
+  height: 200px; /* This is height of Profile Picture*/
+  /*width: 35%; /*This is width of profile picture*/
+  line-height: 1px;
+  
+}
+
+.details {
+
+  border: 0.5rem solid green;
+
+  line-height: 1px;
+}
+
+
+@media (max-width: 414px){
+ .navbar .menu-list{
+  position:fixed;
+    top:0;
+  right:0;
+  height:100%;
+  width:100%;
+  max-width: 290px;
+  background-color: #222;
+  display: block;
+  padding:40px;
+  text-align: center;
+}
+.navbar .menu-list li{
+  margin-top: 50px;
+}
+
+}
+
+/*Media queries for UserDetails*/
+@media (max-width: 414px) {
+  #name {
+    font-size: 20px;
+  }
+  #profile-picture {
+    border-radius: 50%;
+    height: 50px; /* This is height of Profile Picture*/
+  }
+  .sub-tile {
+    font-size: 22px;
+  }
+}
+
+@media (min-width: 414px) {
+  #name {
+    font-size: 26px;
+  }
+  .sub-tile {
+    font-size: 24px;
+  }
+}
+@media (min-width: 820px) {
+  #name {
+    font-size: 32px;
+  }
+  .sub-tile {
+    font-size: 24px;
+  }
+}
+@media (min-width: 1000px) {
+  #name {
+    font-size: 40px;
+  }
+  .sub-tile {
+    font-size: 32px;
+  }
+}
+
+
+
+/*Add your styles here. 
+*/
+h1 {
+    color: brown;
+  }
+  
+  .post {
+    border: 0.5rem solid red;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 1rem 1rem 1rem 1rem;  
+    color: #dcdcdc;
+    background-color:white;
+  }
+  .post_content {
+    border: 0.5em solid orange;
+    padding: 1em 1em 1em 1em;
+    display: flex;
+    flex-direction: column;
+    background-color: black;
+    height: 200px;
+
+
+  }
+  strong {
+    font-family: cursive;
+    font-weight: bolder;
+  }
+  
+  #post_image {
+    width: 20rem;
+    height: 20rem;
+  }
+  .button-container{
+      display:flex;
+  }
+  .button{
+   padding: 1rem 1rem;
+    text-align: center;
+    text-decoration:solid black;
+    font-family: cursive;
+    font-size: 1rem;
+    font-weight: bold;
+    margin: 4px 2px;
+    cursor: pointer;
+  
+  }
+  #like{
+      background-color: cyan;
+  }
+  #dislike{
+      background-color: orangered;
+  }
+  
+  @media (max-width: 320px) {
+    .post {
+      flex-direction: column;
+    }
+    .post_content {
+      font-size: 0.5rem;
+    }
+  
+    #post_image {
+      width: 10rem;
+      height: 10rem;
+    }
+  }
+ 
+  @media (min-width: 820px) {
+    .post {
+      flex-direction: column;
+    }
+    .post_content {
+      font-size: 1rem;
+      width:25rem;
+      height:25rem;
+    }
+    #post_image {
+      width: 10rem;
+      height: 10rem;
+    }
+  }
+  
+  @media (min-width: 1000px) {
+    .post {
+      flex-direction: row;
+    }
+    .post_content {
+      font-size: 1.2rem;
+      width:30rem;
+      height:30rem;
+    }
+    #post_image {
+      width: 15rem;
+      height: 15rem;
+    }
+  }
+ 

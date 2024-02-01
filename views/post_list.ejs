@@ -1,46 +1,59 @@
 <html lang="en-gb">
-<%- include('_head') -%>
-    <%- include('_header') -%>
+  <%- include('_head') -%> <%- include('_header') -%>
+  <body>
+    <h1>Posts</h1>
+    <button class = "color-button" id = "change-color"> change color</button>
+    
+     
+    <ol class="post">
+      <% postList.results.forEach(function(post) {%>
+       
+ 
+      <li class="post_content">
+        <ul>
+          <!-- <strong>ImageURL:</strong> -->
+          <img src="<%=post.imageUrl%>" id="post_image" />
+        </ul>
+        <ul>
+          <strong>Message:</strong>
+          <%= post.message %>
+        </ul>
+        <ul>
+          <strong>CreatedAt:</strong>
+          <%= format(post.createdAt, "yyyy-MM-dd HH:mm:ss")%>
+        </ul>
 
-        <body>
-            <h1>Posts</h1>
-            <ol>
-                <% postList.results.forEach(function(post) {%>
-                    <li> Message: <%= post.message %>
-                            </ul>
-                            <ul>
-                                CreatedAt: <%= format(post.createdAt, "yyyy-MM-dd HH:mm:ss" )%>
-                            </ul>
-                            <ul>
-                                ImageURL: <img src= "<%=post.imageUrl%>" height = "150" width = "150"/>
-                            </ul>
-                            <ul>
-                                postedBy: <%=post.postedBy.username%>
-                            </ul>
-                            <ul>
-                                <!---likedBy: <% post.likedBy.forEach((user)=> { %>
-                                    <%= user.username %>
-                                        <% }); %>--->
-                                likedBy: <%=post.likedBy.map((user)=>user.username).join(", ")%>
-                            </ul>
-                            <ul>
-                                dislikedBy:<% post.likedBy.forEach((user)=> { %>
-                                    <%= user.username %>
-                                        <% }); %>
-                            </ul>
+        <ul>
+          <strong>postedBy:</strong>
+          <%=post.postedBy.username%>
+        </ul>
+        <ul>
+          <!-- likedBy: <%post.likedBy.forEach((user)=>{%><%=user.username%>,<%})%> -->
+          <strong>likedBy:</strong>
+          <%=post.likedBy.map((user)=>user.username).join(", ")%>
+        </ul>
+        <ul>
+          <!-- dislikedBy: <%post.dislikedBy.forEach((user)=>{%><%=user.username%>,<%})%> -->
+          <strong>dislikedBy:</strong>
+          <%=post.dislikedBy.map((user)=>user.username).join(", ")%>
+        </ul>
+        <div class="button-container">
+          <form method="post" action="/posts/<%=post.id%>/like">
+            <button type="submit" class="button" id="like">like</button>
+          </form>
+          <form method="post" action="/posts/<%=post.id%>/dislike">
+            <button type="submit" class="button" id="dislike">dislike</button>
+          </form>
+        </div>
 
-                    </li>
-                    <% }); %>
-            </ol>
-
-            <%if (postList.next) { %>
-                <a href="<%= postList.next %>">Next</a>
-                <% } %>
-                    <%if (postList.previous) { %>
-                        <a href="<%= postList.previous %>">Previous</a>
-                        <% } %>
-
-        </body>
-        <%- include('_footer') -%>
-
+      </li>
+      <% }); %>
+    </ol>
+    <%if (postList.next) { %>
+    <a href="<%= postList.next %>">Next</a>
+    <% } %> | <%if (postList.previous) { %>
+    <a href="<%= postList.previous %>">Previous</a>
+    <% } %>
+  </body>
+  <%- include('_footer') -%>
 </html>
